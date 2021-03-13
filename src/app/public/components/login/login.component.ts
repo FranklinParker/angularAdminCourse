@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +16,20 @@ export class LoginComponent implements OnInit {
       Validators.required])],
   }, {validators: []});
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
   async onSubmit(): Promise<void> {
-    console.log('form ', this.form.value);
+    try{
+      await this.authService.login(this.form.value);
+      await this.router.navigate(['/']);
+    } catch (e){
+      console.log('login error:', e);
+    }
   }
 }

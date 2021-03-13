@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Register} from '../models/register';
 import {environment} from '../../../environments/environment';
+import {Login} from '../models/login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService {
+export class AuthService {
 
   constructor(private readonly httpClient: HttpClient) {
   }
@@ -22,6 +23,18 @@ export class RegisterService {
         passwordConfirm: register.passwordConfirm
 
       }).toPromise();
+      console.log('register', resp);
+    } catch (e) {
+      console.log('e:' + e.message);
+      throw e;
+    }
+  }
+
+  async login(login: Login): Promise<any> {
+    const url = `${environment.api}/login`;
+    try {
+      const resp = await this.httpClient.post(url, login,
+        {withCredentials: true}).toPromise();
       console.log('register', resp);
     } catch (e) {
       console.log('e:' + e.message);

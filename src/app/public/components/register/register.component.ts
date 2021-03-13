@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 
-import {RegisterService} from '../../service/register.service';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   email = '';
   password = '';
   passwordConfirm = '';
-  constructor(private registerService: RegisterService,
+  constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   async onSubmit(form: NgForm): Promise<void> {
     console.log('form', form.value);
     try{
-      await this.registerService.register(form.value);
+      await this.authService.register(form.value);
       await this.router.navigate(['/login']);
     }catch (e){
       console.log('error', e);
