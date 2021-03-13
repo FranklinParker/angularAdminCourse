@@ -1,17 +1,20 @@
 <main class="form-signin">
-  <form  #form="ngForm">
+  <form  [formGroup]="form">
     <h1 class="h3 mb-3 fw-normal">Login</h1>
 
     <input type="email"
+           formControlName="email"
            name="email"
            class="form-control" placeholder="Email address" required >
     <input type="password"
+           formControlName="password"
            name="password"
            class="form-control" placeholder="Password" required>
 
     <button class="w-100 btn btn-lg btn-primary"
+            [disabled]="!form.valid"
             (click)="onSubmit()"
-            type="submit">Submit</button>
+            type="button">Submit</button>
   </form>
 </main>
 
