@@ -7,7 +7,7 @@ import {RegisterService} from '../../service/register.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss', '../public/public.component.scss']
 })
 export class RegisterComponent implements OnInit {
   firstName = '';
