@@ -11,14 +11,14 @@ export class RegisterService {
   }
 
   async register(register: Register): Promise<any> {
-    const url = 'http://localhost:8000/api/users';
+    const url = 'http://localhost:8000/api/register';
     try {
       const resp = await this.httpClient.post(url, {
         first_name: register.firstName,
         last_name: register.firstName,
         email: register.email,
         password: register.password,
-        password_confirm: register.passwordConfirm
+        passwordConfirm: register.passwordConfirm
 
       }).toPromise();
       console.log('register', resp);
