@@ -7,11 +7,11 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  first_name = '';
-  last_name = '';
+  firstName = '';
+  lastName = '';
   email = '';
   password = '';
-  password_confirm = '';
+  passwordConfirm = '';
   constructor() { }
 
   ngOnInit(): void {

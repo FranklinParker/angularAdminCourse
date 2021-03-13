@@ -2,12 +2,12 @@
   <form  #form="ngForm">
     <h1 class="h3 mb-3 fw-normal">Please Register</h1>
     <input type="text"
-           name="first_name"
-           [(ngModel)]="first_name"
+           name="firstName"
+           [(ngModel)]="firstName"
            class="form-control" placeholder="First Name" required >
     <input type="text"
-           name="last_name"
-           [(ngModel)]="last_name"
+           name="lastName"
+           [(ngModel)]="lastName"
            class="form-control" placeholder="Last Name" required >
     <input type="email"
            name="email"
@@ -18,8 +18,8 @@
            [(ngModel)]="password"
            class="form-control" placeholder="Password" required>
     <input type="password"
-           name="password_confirm"
-           [(ngModel)]="password_confirm"
+           name="passwordConfirm"
+           [(ngModel)]="passwordConfirm"
            class="form-control mb-2" placeholder="Password Confirm" required>
     <button class="w-100 btn btn-lg btn-primary"
             (click)="onSubmit(form)"
