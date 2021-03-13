@@ -15,6 +15,6 @@ import {MenuComponent} from './components/menu/menu.component';
   imports: [
     CommonModule
   ],
- 
+
 })
 export class SecureModule { }
