@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.user = await  this.authService.user();
+    console.log('user', this.user);
   }
 
   logout(): void {
