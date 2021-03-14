@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Register} from '../models/register';
 import {environment} from '../../../environments/environment';
 import {Login} from '../models/login';
+import {Observable} from 'rxjs';
+import {User} from '../../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +42,11 @@ export class AuthService {
       console.log('e:' + e.message);
       throw e;
     }
+  }
+
+  async user(): Promise<User>{
+    const url = `${environment.api}/user`;
+    return this.httpClient.get<User>(url, { withCredentials: true}).toPromise();
+
   }
 }
