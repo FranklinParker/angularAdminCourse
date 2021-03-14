@@ -5,12 +5,17 @@ import {LoginComponent} from './public/components/login/login.component';
 import {RegisterComponent} from './public/components/register/register.component';
 import {PublicComponent} from './public/components/public/public.component';
 import {ProfileComponent} from './secure/components/profile/profile.component';
+import {DashboardComponent} from './secure/components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: SecureComponent,
     children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
       {
         path: 'profile',
         component: ProfileComponent
