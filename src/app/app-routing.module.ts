@@ -4,11 +4,18 @@ import {SecureComponent} from './secure/components/secure/secure.component';
 import {LoginComponent} from './public/components/login/login.component';
 import {RegisterComponent} from './public/components/register/register.component';
 import {PublicComponent} from './public/components/public/public.component';
+import {ProfileComponent} from './secure/components/profile/profile.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SecureComponent
+    component: SecureComponent,
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      }
+    ]
   },
   {
     path: '',
