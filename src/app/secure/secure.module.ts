@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SecureComponent } from './components/secure/secure.component';
 import {NavComponent} from './components/nav/nav.component';
 import {MenuComponent} from './components/menu/menu.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -10,7 +11,8 @@ import {MenuComponent} from './components/menu/menu.component';
   declarations: [
     NavComponent,
     MenuComponent,
-    SecureComponent
+    SecureComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule
