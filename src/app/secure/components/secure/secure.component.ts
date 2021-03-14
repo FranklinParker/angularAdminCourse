@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../../interfaces/user';
+import {AuthService} from '../../../public/service/auth.service';
 
 @Component({
   selector: 'app-secure',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secure.component.scss']
 })
 export class SecureComponent implements OnInit {
+  user: User | undefined;
+  constructor(private authService: AuthService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.user = await  this.authService.user();
+    console.log('user', this.user);
   }
 
 }
