@@ -49,4 +49,15 @@ export class AuthService {
     return this.httpClient.get<User>(url, { withCredentials: true}).toPromise();
 
   }
+  async logout(): Promise<void> {
+    const url = `${environment.api}/logout`;
+    try {
+      await this.httpClient.post(url, {},
+        {withCredentials: true}).toPromise();
+    } catch (e) {
+      console.log('e:' + e.message);
+      throw e;
+    }
+  }
+
 }
