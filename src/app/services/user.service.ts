@@ -12,8 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  users(): Observable<any>{
-    return this.http.get<any>(`${environment.api}/users`)
+  users(page: number): Observable<any>{
+    return this.http.get<any>(`${environment.api}/users?page=${page}`)
       .pipe(
         map(res => res.data )
       );
