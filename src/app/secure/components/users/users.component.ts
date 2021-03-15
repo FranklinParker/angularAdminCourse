@@ -26,5 +26,6 @@ export class UsersComponent implements OnInit {
   }
 
   async load(newPage: number): Promise<void> {
+    await this.getUsers(newPage);
   }
 }
