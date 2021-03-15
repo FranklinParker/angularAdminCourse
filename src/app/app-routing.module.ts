@@ -14,7 +14,10 @@ const routes: Routes = [
     component: SecureComponent,
     children: [
       {
-        path: '',
+        path: '', redirectTo: '/dashboard', pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
         component: DashboardComponent
       },
       {
