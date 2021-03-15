@@ -10,14 +10,13 @@ import {Auth} from '../../../auth/auth';
   styleUrls: ['./secure.component.scss']
 })
 export class SecureComponent implements OnInit {
-  user: User | undefined;
   constructor(private authService: AuthService,
               private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     try{
-      this.user = await  this.authService.user();
-      Auth.userEmitter.emit(this.user);
+       const user = await  this.authService.user();
+       Auth.userEmitter.emit(user);
 
     } catch (e){
       await this.router.navigate(['/login']);
