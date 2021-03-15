@@ -9,11 +9,14 @@ import {UserResponse} from '../interfaces/UserResponse';
   providedIn: 'root'
 })
 export class UserService {
-
+  userApi = '${environment.api}/users';
   constructor(private http: HttpClient) { }
-
   async users(page: number): Promise<UserResponse>{
-    const userResponse = await this.http.get<any>(`${environment.api}/users?page=${page}`).toPromise();
+    const userResponse = await this.http.get<any>(`${this.userApi}?page=${page}`).toPromise();
     return userResponse;
+  }
+
+  delete(id: number): Observable<void>{
+    return this.http.delete<any>(this.userApi);
   }
 }

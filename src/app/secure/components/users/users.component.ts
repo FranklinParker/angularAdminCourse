@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../interfaces/user';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-users',
@@ -28,4 +29,14 @@ export class UsersComponent implements OnInit {
   async load(newPage: number): Promise<void> {
     await this.getUsers(newPage);
   }
+  delete(id: number): void {
+    if (confirm('Are you sure you want to delete this record?')) {
+      this.userService.delete(id).subscribe(
+        () => {
+          this.users = this.users.filter(u => u.id !== id);
+        }
+      );
+    }
+  }
+
 }
