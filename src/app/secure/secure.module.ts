@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 
@@ -18,7 +19,8 @@ import { UsersComponent } from './components/users/users.component';
     SecureComponent,
     ProfileComponent,
     DashboardComponent,
-    UsersComponent
+    UsersComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,
