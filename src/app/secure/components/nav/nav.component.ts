@@ -11,18 +11,20 @@ import {Auth} from '../../../auth/auth';
 })
 export class NavComponent implements OnInit {
   user: User | undefined;
-  constructor(private authService: AuthService,
-              private router: Router) { }
-  async ngOnInit(): Promise<void> {
-    Auth.userEmitter.subscribe((user: User | undefined) => this.user = user);
 
+  constructor(private authService: AuthService,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+    Auth.userEmitter.subscribe((user: User | undefined) => this.user = user);
   }
 
   async logout(): Promise<void> {
-    try{
+    try {
       await this.authService.logout();
       await this.router.navigate(['/login']);
-    }catch(e){
+    } catch (e) {
 
     }
   }
