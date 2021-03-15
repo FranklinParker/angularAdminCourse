@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service';
+import {Observable, of} from 'rxjs';
+import {User} from '../../../interfaces/user';
 
 @Component({
   selector: 'app-users',
@@ -7,12 +9,11 @@ import {UserService} from '../../../services/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
+  users$: Observable<User[]> = of()
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.users()
-      .subscribe(users => console.log(users));
+    this.users$ = this.userService.users();
   }
 
 }
