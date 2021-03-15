@@ -16,7 +16,7 @@ import {CredentialsInterceptor} from './interceptors/Credentials.interceptor';
     BrowserModule,
     AppRoutingModule,
     SecureModule,
-    PublicModule
+    PublicModule,
   ],
   providers: [
     {
