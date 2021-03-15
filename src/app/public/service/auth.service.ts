@@ -60,4 +60,10 @@ export class AuthService {
     }
   }
 
+  updateInfo(user: User): Observable<User>{
+    return this.httpClient.put<User>(`${environment.api}/users/info`, user);
+  }
+  updatePassword(data: any): Observable<User> {
+    return this.httpClient.put<User>(`${environment.api}/users/password`, data);
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../../../public/service/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ProfileComponent implements OnInit {
   infoForm: any;
   passwordForm: any;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.infoForm = this.fb.group({
@@ -28,9 +30,9 @@ export class ProfileComponent implements OnInit {
     }, {validators: []});
   }
 
-  async infoSubmit(): Promise<void> {
+  infoSubmit(): void{
   }
 
-  async passwordSubmit(): Promise<void> {
+  passwordSubmit(): void{
   }
 }
