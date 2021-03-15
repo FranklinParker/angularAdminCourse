@@ -19,4 +19,9 @@
       </tr>
     </tbody>
   </table>
+
+  <app-paginator
+    [lastPage]="lastPage"
+    (pageChanged)="load($event)"
+  ></app-paginator>
 </div>

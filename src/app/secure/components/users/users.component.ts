@@ -9,18 +9,22 @@ import {User} from '../../../interfaces/user';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  page = 1;
+  lastPage = 1;
   constructor(private userService: UserService) { }
 
   async ngOnInit(): Promise<void> {
     await this.getUsers();
   }
 
-  private async getUsers(): Promise<void>{
-    const response  = await this.userService.users(this.page);
+  private async getUsers(page = 1): Promise<void>{
+    const response  = await this.userService.users(page);
     console.log('response', response);
     this.users = response.data;
+    this.lastPage = response.meta.last_page;
+
 
   }
 
+  async load(newPage: number): Promise<void> {
+  }
 }
