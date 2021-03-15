@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../../../public/service/auth.service';
+import {User} from '../../../interfaces/user';
+import {Auth} from '../../../auth/auth';
 
 @Component({
   selector: 'app-profile',
@@ -28,6 +30,7 @@ export class ProfileComponent implements OnInit {
       password_confirm: ['', Validators.compose([
         Validators.required])],
     }, {validators: []});
+    Auth.userEmitter.subscribe((user: User) => this.infoForm.patchValue(user));
   }
 
   infoSubmit(): void{
