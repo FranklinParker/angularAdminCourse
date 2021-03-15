@@ -29,7 +29,7 @@ export class UserCreateComponent implements OnInit {
               private roleService: RoleService) { }
 
   async ngOnInit(): Promise<void> {
-    this.roles = await this.roleService.roles();
+    this.roles = await this.roleService.all();
   }
 
   submit(): void{

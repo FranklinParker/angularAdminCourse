@@ -30,9 +30,9 @@ export class UserEditComponent implements OnInit {
               private roleService: RoleService) { }
 
   async ngOnInit(): Promise<void> {
-    this.roles = await this.roleService.roles();
+    this.roles = await this.roleService.all();
     this.id = this.route.snapshot.params.id;
-    const user = await this.userService.getUser(this.id);
+    const user = await this.userService.get(this.id);
     this.form.patchValue(user);
     this.form.get('role_id')?.setValue(user.role?.id);
 

@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
   }
 
   private async getUsers(page = 1): Promise<void>{
-    const response  = await this.userService.users(page);
+    const response  = await this.userService.all(page);
     console.log('response', response);
     this.users = response.data;
     this.lastPage = response.meta.last_page;
