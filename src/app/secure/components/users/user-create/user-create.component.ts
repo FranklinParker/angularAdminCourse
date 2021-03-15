@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Role} from '../../../../interfaces/role';
 import {RoleService} from '../../../../services/role.service';
 import {UserService} from '../../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-create',
@@ -22,6 +23,7 @@ export class UserCreateComponent implements OnInit {
       Validators.required])],
   }, {validators: []});
   constructor(private fb: FormBuilder,
+              private router: Router,
               private userService: UserService,
               private roleService: RoleService) { }
 
@@ -31,6 +33,6 @@ export class UserCreateComponent implements OnInit {
 
   submit(): void{
     this.userService.create(this.form.getRawValue())
-      .subscribe(res => console.log(res));
+      .subscribe(res => this.router.navigate(['/users']));
   }
 }
