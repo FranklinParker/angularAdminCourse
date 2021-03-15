@@ -16,11 +16,18 @@ export class UserService {
     return userResponse;
   }
 
+  async getUser(id: number): Promise<any> {
+    return await this.http.get<any>(`${this.userApi}/${id}`).toPromise();
+  }
   delete(id: number): Observable<void>{
     return this.http.delete<any>(`${this.userApi}/id`);
   }
 
   create(user: User): Observable<void>{
     return this.http.post<any>(this.userApi, user);
+  }
+
+  update(user: User, id: number): Observable<User> {
+    return this.http.put<any>(`${this.userApi}/${id}`, user);
   }
 }
