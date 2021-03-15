@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
 
   infoSubmit(): void{
     this.authService.updateInfo( this.infoForm.getRawValue())
-      .subscribe(user => console.log(user));
+      .subscribe(user =>  Auth.userEmitter.emit(user));
   }
 
   passwordSubmit(): void{
