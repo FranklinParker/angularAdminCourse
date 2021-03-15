@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service';
-import {Observable, of} from 'rxjs';
 import {User} from '../../../interfaces/user';
 
 @Component({
@@ -19,6 +18,7 @@ export class UsersComponent implements OnInit {
 
   private async getUsers(): Promise<void>{
     const response  = await this.userService.users(this.page);
+    console.log('response', response);
     this.users = response.data;
 
   }
