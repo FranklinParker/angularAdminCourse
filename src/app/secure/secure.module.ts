@@ -9,6 +9,8 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { UserCreateComponent } from './components/users/user-create/user-create.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 
 
@@ -20,7 +22,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     ProfileComponent,
     DashboardComponent,
     UsersComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    UserCreateComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

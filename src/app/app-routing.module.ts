@@ -7,6 +7,8 @@ import {PublicComponent} from './public/components/public/public.component';
 import {ProfileComponent} from './secure/components/profile/profile.component';
 import {DashboardComponent} from './secure/components/dashboard/dashboard.component';
 import {UsersComponent} from './secure/components/users/users.component';
+import {UserCreateComponent} from './secure/components/users/user-create/user-create.component';
+import {UserEditComponent} from './secure/components/users/user-edit/user-edit.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,14 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'users/:id/edit',
+        component: UserEditComponent
+      },
+      {
+        path: 'users/create',
+        component: UserCreateComponent
       },
       {
         path: 'users',
