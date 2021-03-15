@@ -9,16 +9,17 @@ import {User} from '../../../interfaces/user';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users$: Observable<User[]> = of();
+  users: User[] = [];
   page = 1;
   constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
-    this.getUsers();
+  async ngOnInit(): Promise<void> {
+    await this.getUsers();
   }
 
-  private getUsers(): void{
-    this.users$ = this.userService.users(this.page);
+  private async getUsers(): Promise<void>{
+    const response  = await this.userService.users(this.page);
+    this.users = response.data;
 
   }
 

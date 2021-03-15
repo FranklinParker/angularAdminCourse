@@ -12,10 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  users(page: number): Observable<any>{
-    return this.http.get<any>(`${environment.api}/users?page=${page}`)
-      .pipe(
-        map(res => res.data )
-      );
+  async users(page: number): Promise<{data: User[]}>{
+    const userResponse = await this.http.get<any>(`${environment.api}/users?page=${page}`).toPromise();
+    return userResponse;
   }
 }
