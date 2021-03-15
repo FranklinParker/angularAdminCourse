@@ -34,6 +34,7 @@ export class UserEditComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     const user = await this.userService.getUser(this.id);
     this.form.patchValue(user);
+    this.form.get('role_id')?.setValue(user.role?.id);
 
   }
 

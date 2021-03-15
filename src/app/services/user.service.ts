@@ -16,7 +16,7 @@ export class UserService {
     return userResponse;
   }
 
-  async getUser(id: number): Promise<any> {
+  async getUser(id: number): Promise<User> {
     return await this.http.get<any>(`${this.userApi}/${id}`).toPromise();
   }
   delete(id: number): Observable<void>{
