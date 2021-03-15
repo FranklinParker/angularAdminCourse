@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Role} from '../../../../interfaces/role';
+import {RoleService} from '../../../../services/role.service';
+import {UserService} from '../../../../services/user.service';
 
 @Component({
   selector: 'app-user-create',
@@ -19,12 +21,16 @@ export class UserCreateComponent implements OnInit {
     role_id: ['', Validators.compose([
       Validators.required])],
   }, {validators: []});
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private roleService: RoleService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.roles = await this.roleService.roles();
   }
 
   submit(): void{
-
+    this.userService.create(this.form.getRawValue())
+      .subscribe(res => console.log(res));
   }
 }

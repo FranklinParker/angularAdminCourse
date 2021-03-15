@@ -3,24 +3,19 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {UserResponse} from '../interfaces/UserResponse';
-import {User} from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  userApi = `${environment.api}/users`;
+export class RoleService {
+  roleApi = `${environment.api}/roles`;
   constructor(private http: HttpClient) { }
-  async users(page: number): Promise<UserResponse>{
-    const userResponse = await this.http.get<any>(`${this.userApi}?page=${page}`).toPromise();
+  async roles(): Promise<any>{
+    const userResponse = await this.http.get<any>(`${this.roleApi}`).toPromise();
     return userResponse;
   }
 
   delete(id: number): Observable<void>{
-    return this.http.delete<any>(this.userApi);
-  }
-
-  create(user: User): Observable<void>{
-    return this.http.post<any>(this.userApi, user);
+    return this.http.delete<any>(this.roleApi);
   }
 }
