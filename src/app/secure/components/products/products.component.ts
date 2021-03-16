@@ -9,6 +9,7 @@ import {Product} from '../../../interfaces/product';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  lastPage = 1;
   constructor(private productService: ProductService) { }
 
   async ngOnInit(): Promise<void> {
@@ -18,6 +19,8 @@ export class ProductsComponent implements OnInit {
   async load(page= 1): Promise<void>{
     const {data, meta} = await this.productService.all(1);
     this.products = data;
+    this.lastPage = meta.last_page;
+    console.log('lastPage:' + this.lastPage);
 
   }
 
