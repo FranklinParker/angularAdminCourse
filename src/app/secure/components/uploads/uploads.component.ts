@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-uploads',
@@ -15,17 +17,19 @@ export class UploadsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upload(files: FileList): void {
-    const file = files.item(0);
+  upload(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const data = new FormData();
+      data.append('image', file);
 
-    const data = new FormData();
-    data.append('image', file);
-
-    this.http.post(`${environment.api}/upload`, data)
-      .subscribe((res: any) => {
-          this.uploaded.emit(res.url);
-        }
-      );
+      this.http.post(`${environment.api}/upload`, data)
+        .subscribe((res: any) => {
+            this.uploaded.emit(res.url);
+          }
+        );
+    }
   }
+
 
 }

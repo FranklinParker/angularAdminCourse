@@ -8,6 +8,13 @@
     <input class="form-control" name="description" formControlName="description">
   </div>
   <div class="mb-3">
+    <label>Image</label>
+    <div class="input-group">
+      <input formControlName="image" class="form-control" name="image">
+      <app-uploads (uploaded)="form.patchValue({'image': $event})"></app-uploads>
+    </div>
+  </div>
+  <div class="mb-3">
     <label>Price</label>
     <input class="form-control" name="price" type="number" formControlName="price">
   </div>
