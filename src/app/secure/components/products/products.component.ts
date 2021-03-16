@@ -20,7 +20,6 @@ export class ProductsComponent implements OnInit {
     const {data, meta} = await this.productService.all(1);
     this.products = data;
     this.lastPage = meta.last_page;
-    console.log('lastPage:' + this.lastPage);
 
   }
 
