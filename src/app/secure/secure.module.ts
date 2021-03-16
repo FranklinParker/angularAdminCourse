@@ -14,6 +14,7 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
 import { RolesComponent } from './components/roles/roles.component';
 import { RoleCreateComponent } from './components/roles/role-create/role-create.component';
 import { RoleEditComponent } from './components/roles/role-edit/role-edit.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 
@@ -30,7 +31,8 @@ import { RoleEditComponent } from './components/roles/role-edit/role-edit.compon
     UserEditComponent,
     RolesComponent,
     RoleCreateComponent,
-    RoleEditComponent
+    RoleEditComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,

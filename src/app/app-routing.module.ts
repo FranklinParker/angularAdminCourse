@@ -13,6 +13,7 @@ import {RoleService} from './services/role.service';
 import {RolesComponent} from './secure/components/roles/roles.component';
 import {RoleCreateComponent} from './secure/components/roles/role-create/role-create.component';
 import {RoleEditComponent} from './secure/components/roles/role-edit/role-edit.component';
+import {ProductsComponent} from './secure/components/products/products.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'roles/:id/edit',
         component: RoleEditComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
       },
     ]
   },
