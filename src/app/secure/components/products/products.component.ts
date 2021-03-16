@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   }
 
   async load(page= 1): Promise<void>{
-    const {data, meta} = await this.productService.all(1);
+    const {data, meta} = await this.productService.all(page);
     this.products = data;
     this.lastPage = meta.last_page;
 

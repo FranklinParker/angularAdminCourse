@@ -14,6 +14,7 @@ import {RolesComponent} from './secure/components/roles/roles.component';
 import {RoleCreateComponent} from './secure/components/roles/role-create/role-create.component';
 import {RoleEditComponent} from './secure/components/roles/role-edit/role-edit.component';
 import {ProductsComponent} from './secure/components/products/products.component';
+import {ProductCreateComponent} from './secure/components/products/product-create/product-create.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
+      },
+      {
+        path: 'products/create',
+        component: ProductCreateComponent
       },
     ]
   },
