@@ -17,6 +17,7 @@ import { RoleEditComponent } from './components/roles/role-edit/role-edit.compon
 import { ProductsComponent } from './components/products/products.component';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
 import { UploadsComponent } from './components/uploads/uploads.component';
+import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
 
 
 
@@ -36,7 +37,8 @@ import { UploadsComponent } from './components/uploads/uploads.component';
     RoleEditComponent,
     ProductsComponent,
     ProductCreateComponent,
-    UploadsComponent
+    UploadsComponent,
+    ProductEditComponent
   ],
   imports: [
     CommonModule,
