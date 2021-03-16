@@ -12,6 +12,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { RoleCreateComponent } from './components/roles/role-create/role-create.component';
 
 
 
@@ -26,7 +27,8 @@ import { RolesComponent } from './components/roles/roles.component';
     PaginatorComponent,
     UserCreateComponent,
     UserEditComponent,
-    RolesComponent
+    RolesComponent,
+    RoleCreateComponent
   ],
   imports: [
     CommonModule,
