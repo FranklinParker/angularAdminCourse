@@ -46,7 +46,7 @@ export class RoleCreateComponent implements OnInit {
       name: formData.name,
       permissions: formData.permissions.filter( (p: { value: boolean; }) => p.value === true).map( (p: { id: any; }) => p.id)
     };
-
+    console.log('data', data);
     this.roleService.create(data)
       .subscribe(() => this.router.navigate(['/roles']));
   }
