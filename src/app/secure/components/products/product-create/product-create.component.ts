@@ -14,6 +14,7 @@ export class ProductCreateComponent implements OnInit {
       Validators.required])],
     description: ['', Validators.compose([
       Validators.required])],
+    image: '',
     price: [0, Validators.compose([
       Validators.required])],
   }, {validators: []});
@@ -26,7 +27,6 @@ export class ProductCreateComponent implements OnInit {
 
   submit(): void {
     const data = this.form.getRawValue();
-    data.image = 'test';
     this.productService.create(data)
       .subscribe(() => this.router.navigate(['/products']));
   }

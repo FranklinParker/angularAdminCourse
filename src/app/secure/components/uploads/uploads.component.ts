@@ -20,6 +20,7 @@ export class UploadsComponent implements OnInit {
   upload(event: any): void {
     const file: File = event.target.files[0];
     if (file) {
+      console.log(file);
       const data = new FormData();
       data.append('image', file);
 
