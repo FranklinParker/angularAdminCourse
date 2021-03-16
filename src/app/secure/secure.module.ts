@@ -18,6 +18,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductCreateComponent } from './components/products/product-create/product-create.component';
 import { UploadsComponent } from './components/uploads/uploads.component';
 import { ProductEditComponent } from './components/products/product-edit/product-edit.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProductEditComponent } from './components/products/product-edit/product
     ProductsComponent,
     ProductCreateComponent,
     UploadsComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

@@ -7,5 +7,5 @@ export interface Order{
   email: string;
   created_at: Date;
   total: number;
-  orderItems: OrderItem[];
+  order_items: OrderItem[];
 }
