@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {Permission} from '../../../../interfaces/permission';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PermissionService} from '../../../../services/permission.service';
 import {RoleService} from '../../../../services/role.service';
 
