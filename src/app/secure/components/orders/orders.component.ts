@@ -24,5 +24,6 @@ export class OrdersComponent implements OnInit {
     console.log('orders', this.orders);
 
   }
-
+  delete(id: number): void {
+  }
 }
