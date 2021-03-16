@@ -13,6 +13,7 @@ import { UserCreateComponent } from './components/users/user-create/user-create.
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { RoleCreateComponent } from './components/roles/role-create/role-create.component';
+import { RoleEditComponent } from './components/roles/role-edit/role-edit.component';
 
 
 
@@ -28,7 +29,8 @@ import { RoleCreateComponent } from './components/roles/role-create/role-create.
     UserCreateComponent,
     UserEditComponent,
     RolesComponent,
-    RoleCreateComponent
+    RoleCreateComponent,
+    RoleEditComponent
   ],
   imports: [
     CommonModule,

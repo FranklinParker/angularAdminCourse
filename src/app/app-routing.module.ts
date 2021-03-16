@@ -12,6 +12,7 @@ import {UserEditComponent} from './secure/components/users/user-edit/user-edit.c
 import {RoleService} from './services/role.service';
 import {RolesComponent} from './secure/components/roles/roles.component';
 import {RoleCreateComponent} from './secure/components/roles/role-create/role-create.component';
+import {RoleEditComponent} from './secure/components/roles/role-edit/role-edit.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: 'roles/create',
         component: RoleCreateComponent
+      },
+      {
+        path: 'roles/:id/edit',
+        component: RoleEditComponent
       },
     ]
   },
