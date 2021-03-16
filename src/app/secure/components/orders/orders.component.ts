@@ -25,5 +25,12 @@ export class OrdersComponent implements OnInit {
 
   }
   delete(id: number): void {
+    if (confirm('Are you sure you want to delete this record?')) {
+      this.orderService.delete(id).subscribe(
+        () => {
+          this.orders = this.orders.filter(u => u.id !== id);
+        }
+      );
+    }
   }
 }
