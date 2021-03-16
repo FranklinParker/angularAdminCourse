@@ -22,6 +22,12 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(id: number): void {
-
+    if (confirm('Are you sure you want to delete this record?')) {
+      this.productService.delete(id).subscribe(
+        () => {
+          this.products = this.products.filter(u => u.id !== id);
+        }
+      );
+    }
   }
 }
