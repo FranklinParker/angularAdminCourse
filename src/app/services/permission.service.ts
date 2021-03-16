@@ -9,7 +9,7 @@ import {RestService} from './rest.service';
   providedIn: 'root'
 })
 export class PermissionService extends RestService{
-  endpoint = `${environment.api}/roles`;
+  endpoint = `${environment.api}/permissions`;
   constructor(protected http: HttpClient) {
     super(http);
   }
