@@ -22,8 +22,6 @@ export class UsersComponent implements OnInit {
     console.log('response', response);
     this.users = response.data;
     this.lastPage = response.meta.last_page;
-
-
   }
 
   async load(newPage: number): Promise<void> {

@@ -9,6 +9,8 @@ import {DashboardComponent} from './secure/components/dashboard/dashboard.compon
 import {UsersComponent} from './secure/components/users/users.component';
 import {UserCreateComponent} from './secure/components/users/user-create/user-create.component';
 import {UserEditComponent} from './secure/components/users/user-edit/user-edit.component';
+import {RoleService} from './services/role.service';
+import {RolesComponent} from './secure/components/roles/roles.component';
 
 const routes: Routes = [
   {
@@ -37,7 +39,11 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
-      }
+      },
+      {
+        path: 'roles',
+        component: RolesComponent
+      },
     ]
   },
   {
