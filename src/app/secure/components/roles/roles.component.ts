@@ -9,7 +9,6 @@ import {RoleService} from '../../../services/role.service';
 })
 export class RolesComponent implements OnInit {
   roles: Role[] = [];
-  lastPage = 1;
   constructor(private roleService: RoleService) { }
 
   async ngOnInit(): Promise<void> {
@@ -19,7 +18,7 @@ export class RolesComponent implements OnInit {
   private async getRoles(page = 1): Promise<void>{
     const response  = await this.roleService.all(page);
     console.log('response', response);
-    this.roles = response.data;
+    this.roles = response;
 
   }
 
