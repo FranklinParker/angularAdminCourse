@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Permission} from '../../../../interfaces/permission';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PermissionService} from '../../../../services/permission.service';
 import {RoleService} from '../../../../services/role.service';
@@ -27,6 +27,7 @@ export class RoleEditComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.id = this.route.snapshot.params.id;
     const role = await this.roleService.get(this.id);
+    this.name.setValue(role.name);
     this.permissions = await this.permissionService.all();
     this.permissions.forEach(p => {
       this.permissionArray.push(
@@ -38,11 +39,22 @@ export class RoleEditComponent implements OnInit {
     });
   }
   submit(): void{
+    const formData = this.form.getRawValue();
+
+    const data = {
+      name: formData.name,
+      permissions: formData.permissions.filter( (p: { value: boolean; }) => p.value === true).map( (p: { id: any; }) => p.id)
+    };
+    this.roleService.update(data, this.id)
+      .subscribe(() => this.router.navigate(['/roles']));
 
   }
 
   get permissionArray(): FormArray{
     return this.form.get('permissions') as FormArray;
+  }
+  get name(): FormControl{
+    return this.form.get('name') as FormControl;
   }
 
 }
