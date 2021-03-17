@@ -16,8 +16,8 @@ import { Order } from '../../../interfaces/order';
       state('hide', style({
         maxHeight: 0
       })),
-      transition('show => hide', animate('1000ms ease-in')),
-      transition('hide => show', animate('1000ms ease-out')),
+      transition('show => hide', animate('400ms ease-in')),
+      transition('hide => show', animate('400ms ease-out')),
     ])
   ]
 })
