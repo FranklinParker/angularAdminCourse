@@ -10,6 +10,7 @@ import { Order } from '../../../interfaces/order';
 export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   lastPage = 0;
+  selectOrderId = -1;
 
   constructor(private orderService: OrderService) { }
 
@@ -32,5 +33,9 @@ export class OrdersComponent implements OnInit {
         }
       );
     }
+  }
+
+  onSelectViewOrder(id: number): void {
+    this.selectOrderId = id === this.selectOrderId ? -1 : id;
   }
 }

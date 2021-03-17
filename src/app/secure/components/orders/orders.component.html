@@ -14,20 +14,47 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let order of orders">
-      <td>{{order.id}}</td>
-      <td>{{order.name}}</td>
-      <td>{{order.email}}</td>
-      <td>{{order.total|currency}}</td>
-      <td>{{order.created_at|date}}</td>
-      <td>
-        <div class="btn-group mr-2">
-          <a [routerLink]="['/orders', order.id, 'edit']" class="btn btn-sm btn-outline-secondary">Edit</a>
-          <a href="javascript:void(0)" class="btn btn-sm btn-outline-secondary"
-             (click)="delete(order.id)">Delete</a>
-        </div>
-      </td>
-    </tr>
+    <ng-container *ngFor="let order of orders">
+
+      <tr>
+        <td>{{order.id}}</td>
+        <td>{{order.name}}</td>
+        <td>{{order.email}}</td>
+        <td>{{order.total|currency}}</td>
+        <td>{{order.created_at|date}}</td>
+        <td>
+          <div class="btn-group mr-2">
+            <a (click)="onSelectViewOrder(order.id)" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="javascript:void(0)" class="btn btn-sm btn-outline-secondary"
+               (click)="delete(order.id)">Delete</a>
+          </div>
+        </td>
+      </tr>
+      <tr [hidden]="selectOrderId===order.id">
+        <td colspan="5">
+          <table>
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let orderItem of order.order_items">
+                <td>{{orderItem.id}}</td>
+                <td>{{orderItem.product_title}}</td>
+                <td>{{orderItem.price|currency}}</td>
+                <td>{{orderItem.quantity}}</td>
+                <td>{{orderItem.price*orderItem.quantity|currency}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </ng-container>
     </tbody>
   </table>
   <app-paginator
