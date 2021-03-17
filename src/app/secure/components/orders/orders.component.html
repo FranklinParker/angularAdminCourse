@@ -24,15 +24,15 @@
         <td>{{order.created_at|date}}</td>
         <td>
           <div class="btn-group mr-2">
-            <a (click)="onSelectViewOrder(order.id)" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a (click)="onSelectViewOrder(order.id)" class="btn btn-sm btn-outline-secondary">View</a>
             <a href="javascript:void(0)" class="btn btn-sm btn-outline-secondary"
                (click)="delete(order.id)">Delete</a>
           </div>
         </td>
       </tr>
-      <tr [hidden]="selectOrderId===order.id">
-        <td colspan="5">
-          <table>
+      <tr [hidden]="selectOrderId!==order.id">
+        <td colspan="6">
+          <table class="table table_sm">
             <thead>
             <tr>
               <th>id</th>
