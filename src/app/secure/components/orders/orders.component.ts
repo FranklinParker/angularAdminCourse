@@ -1,11 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 import {OrderService} from '../../../services/order.service';
 import { Order } from '../../../interfaces/order';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
+  animations: [
+    trigger('tableState', [
+      state('show', style({
+        maxHeight: '150px'
+      })),
+      state('hide', style({
+        maxHeight: 0
+      })),
+      transition('show => hide', animate('1000ms ease-in')),
+      transition('hide => show', animate('1000ms ease-out')),
+    ])
+  ]
 })
 export class OrdersComponent implements OnInit {
   orders: Order[] = [];
@@ -37,5 +51,9 @@ export class OrdersComponent implements OnInit {
 
   onSelectViewOrder(id: number): void {
     this.selectOrderId = id === this.selectOrderId ? -1 : id;
+  }
+
+  itemState(id: number): string {
+    return this.selectOrderId === id ? 'show' : 'hide';
   }
 }
