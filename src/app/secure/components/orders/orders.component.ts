@@ -56,4 +56,8 @@ export class OrdersComponent implements OnInit {
   itemState(id: number): string {
     return this.selectOrderId === id ? 'show' : 'hide';
   }
+
+  export(): void {
+    alert('hi');
+  }
 }
